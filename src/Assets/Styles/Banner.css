@@ -1,0 +1,54 @@
+.banner{
+    height: 100%;
+    width: 100%;
+    background-color: #F2F2F2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    mask: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    z-index:-1;
+}
+.banner__text{
+    color: black;
+    position: relative;
+    font-size: 48px;
+}
+
+.firstRow{
+    margin-top: 100px;
+}
+
+.secondRow{
+    margin-bottom: 100px;
+}
+
+@media only screen and (max-width: 768px) {
+    .banner__text{
+        position: relative;
+        font-size: 18px;
+        line-height:40px;
+        align-items: center;
+    }
+    .firstRow{
+        margin-top: 80px;
+    }
+    .secondRow{
+        margin-bottom: 80px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .banner__text{
+        position: relative;
+        font-size: 11px;
+        line-height:20px;
+        align-items: center;
+        text-shadow: 0 5px 3px rgba(0,0,0,0.5);
+    }
+    .firstRow{
+        margin-top: 60px;
+    }
+    .secondRow{
+        margin-bottom: 60px;
+    }
+}
