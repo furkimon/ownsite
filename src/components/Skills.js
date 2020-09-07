@@ -1,28 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import '../Assets/Styles/Skills.css'
 import atom from '../Assets/Images/atom.png'
 import VisibilitySensor from "react-visibility-sensor";
-import { useStateValue } from "../Reducer/StateProvider"
-
 
 const Skills = () => {
-    const [{ isSideBar }] = useStateValue();
     const [atomAnimate, setAtomAnimate] = useState('');
     const [atomWriting, setAtomWriting] = useState('');
     const [profileItem, setProfileItem] = useState('');
     const [skillItem, setSkillItem] = useState('');
-    const [shouldOverlay, setShouldOverlay] = useState('')
-    const [shouldMove, setShouldMove] = useState('');
-
-    useEffect(() => {
-        if (isSideBar) {
-            setShouldMove('move__home')
-            setShouldOverlay('overlay__skills')
-        } else {
-            setShouldMove('')
-            setShouldOverlay('')
-        }
-    }, [isSideBar])
 
     const skillSlide = isVisible => {
         if (isVisible) {
@@ -41,49 +26,71 @@ const Skills = () => {
             setAtomWriting("writing__animation")
         }
     }
+    const skillItems = [
+        {
+            name: 'ReactJS',
+            description: 'Some lorem ipsum  dolor sithamet',
+            delay: 0
+        },
+        {
+            name: 'JavaScript',
+            description: 'Some lorem ipsum  dolor sithamet',
+            delay: "0.1s"
+        },
+        {
+            name: 'HTML',
+            description: 'Some lorem ipsum  dolor sithamet',
+            delay: "0.2s"
+        },
+        {
+            name: 'CSS',
+            description: 'Some lorem ipsum  dolor sithamet',
+            delay: "0.36s"
+        },
+        {
+            name: 'VueJS',
+            description: 'Some lorem ipsum  dolor sithamet',
+            delay: "0.5s"
+        },
+        {
+            name: 'ReactNative',
+            description: 'Some lorem ipsum  dolor sithamet',
+            delay: "0.7s"
+        },
+    ]
+
+    const showSkillItems = () => {
+        return skillItems.map((skill) => {
+            return (
+                <div className={"skills__item " + skillItem} style={{ animationDelay: skill.delay }}>
+                    <h1>{skill.name}</h1>
+                    <span>{skill.description}</span>
+                </div>
+            )
+        })
+    }
+
+
     return (
         <>
-            <div className={shouldOverlay} />
-            <div id="skills" className={"skills " + shouldMove}>
+            <div id="skills" className={"skills "}>
                 <div className="skills__left">
                     <VisibilitySensor onChange={skillSlide}>
                         <div className="skills__list">
-                            <div className={"skills__item " + skillItem}>
-                                <h1>ReactJS</h1>
-                                <span>Some lorem ipsum  dolor sithamet</span>
-                            </div>
-                            <div className={"skills__item " + skillItem} style={{ animationDelay: "0.1s" }}>
-                                <h1>JavaScript</h1>
-                                <span>Some lorem ipsum  dolor sithamet</span>
-                            </div>
-                            <div className={"skills__item " + skillItem} style={{ animationDelay: "0.2s" }}>
-                                <h1>HTML</h1>
-                                <span>Some lorem ipsum  dolor sithamet</span>
-                            </div>
-                            <div className={"skills__item " + skillItem} style={{ animationDelay: "0.36s" }}>
-                                <h1>CSS</h1>
-                                <span>Some lorem ipsum  dolor sithamet</span>
-                            </div>
-                            <div className={"skills__item " + skillItem} style={{ animationDelay: "0.5s" }}>
-                                <h1>VueJS</h1>
-                                <span>Some lorem ipsum  dolor sithamet</span>
-                            </div>
-                            <div className={"skills__item " + skillItem} style={{ animationDelay: "0.7s" }}>
-                                <h1>ReactNative</h1>
-                                <span>Some lorem ipsum  dolor sithamet</span>
-                            </div>
+                            {showSkillItems()}
                         </div>
                     </VisibilitySensor>
                 </div>
+
                 <VisibilitySensor onChange={atomSpin}>
                     <div className="skills__mid">
                         <div className="skills__image">
                             <img className={"skills__atom " + atomAnimate} src={atom} alt="atom" />
                             <h2 className={atomWriting}>When you want to look cool, <strong>use science</strong></h2>
                         </div>
-
                     </div>
                 </VisibilitySensor>
+                
                 <div className="skills__right">
                     <VisibilitySensor onChange={profileSlide}>
                         <div className="skills__profile">

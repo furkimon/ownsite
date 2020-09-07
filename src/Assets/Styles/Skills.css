@@ -41,10 +41,12 @@
 }
 .skills__item > h1{
     font-size: 24px;
+    font-weight: 700;
 }
 .skills__item > span{
     margin-left: 10px;
     font-size: 14px;
+    font-weight: 600;
 }
 
 .skills__mid{
@@ -121,11 +123,14 @@
 
 .skills__profile__item > h1 {
     font-size: 22px;
+    font-weight: 600;
 }
 
 
 .skills__profile__item > span {
+    text-align: center;
     font-size: 14px;
+    font-weight: 600;
 }
 
 .skillItem__slide{
@@ -318,12 +323,12 @@
         align-items: center;
     }
     .skills__item > h1{
-        font-size: 12px;
+        font-size: 16px;
         font-weight: 400;
         
     }
     .skills__item > span{
-        font-size: 8px;
+        font-size: 12px;
         margin-left: 5px;
     }
     
@@ -335,14 +340,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 25%;
+        width: 35%;
         height: auto;
         margin: 5px;
         margin-top: 30px;
     }
 
     .skills__image > h2 {
-        font-size: 8px;
+        font-size: 14px;
         text-align: center;
     }
     
@@ -355,7 +360,7 @@
     
     .skills__profile__item{
         border-radius: 20px;
-        padding:5px;
+        padding:15px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -364,10 +369,12 @@
     }
 
     .skills__profile__item > h1 {
-        font-size: 15px;
+        font-size: 18px;
+        font-weight: 600;
     }
     .skills__profile__item > span{
-        font-size: 8px;
+        text-align: center;
+        font-size: 14px;
     }
 }
 

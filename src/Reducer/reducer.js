@@ -1,5 +1,6 @@
 export const initialState = {
-    isSideBar: false
+    isSideBar: false,
+    close : true
 }
 
 const reducer = (state, action) => {
@@ -8,6 +9,10 @@ const reducer = (state, action) => {
         case 'TOGGLE_SIDEBAR':
             return {
                 ...state, isSideBar: !action.payload
+            }
+        case 'CLOSE_SIDEBAR' :
+            return {
+                ...state, close: !action.payload
             }
         default:
             return { state };

@@ -36,14 +36,15 @@
     height: 40px;
 }
 
-.hover-line > span {
+.header__mid > span {
+    color: #1a1a1a;
 	display:inline-block;
 	position:relative;
     white-space: nowrap;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
 }
-.hover-line > span:after{
+.header__mid > span:after{
 	content:'';
 	height:1px;
 	width:0%;
@@ -57,7 +58,7 @@
 	transition: width 500ms, left 500ms;
 }
 
-.hover-line:hover > span:after{
+.header__mid:hover > span:after{
 	width:120%;
     left:-10%;
 	/* -webkit-transition: width 500ms;
@@ -65,8 +66,6 @@
 	-o-transition: width 500ms; */
 	transition: width 500ms;
 }
-
-
 
 .header__nav {
     padding-right: 30px;
@@ -119,6 +118,43 @@
 
 @media only screen and (max-width: 768px) {
     .header{
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 15px 0px;
+    }
+
+    .header__logoSection{
+        margin-left: 10px;
+        width: max-content
+    }
+
+    .header__mid {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .header__mid > span {
+        font-size: 20px;
+    }
+
+    .menuIcon{
+        font-size: 25px !important;
+    }
+
+    .header__logo {
+        padding: 0px;
+        object-fit: contain;
+    }
+
+    .gh, .ig, .wp{
+        display: none;
+    }
+    
+    .header__nav {
+        display: none;
+    }
+    
+    /* .header{
         display: flex;
         justify-content: space-evenly;
     }
@@ -175,35 +211,44 @@
     .header__navLinkLineTwo{
         font-size: 20px;
         font-weight: 700;
-    }
+    } */
     
 }
 
 @media only screen and (max-width: 360px) {
    
-    
+    .header{
+        padding: 10px 0px;
+    }
+
+    .header__mid {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .header__mid > span {
+        font-size: 15px;
+    }
+
     .menuIcon{
         font-size: 20px !important;
     }
 
     .header__logo {
-        padding: 5px 10px;
+        padding: 0px;
         object-fit: contain;
     }
 
-    .ig{
-        height: 24px;
+    
+    .gh, .ig, .wp{
+        display: none;
     }
     
     .header__nav {
-        padding-right: 7px;
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: flex-end;
+        display: none;
     }
     
-    .header__navLink {
+    /* .header__navLink {
         display: flex;
         text-decoration: none;
         align-items: center;
@@ -240,6 +285,6 @@
     .header__navLinkLineTwo{
         font-size: 14px;
         font-weight: 700;
-    }
+    } */
     
 }

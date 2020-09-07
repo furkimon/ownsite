@@ -23,8 +23,8 @@ const Header = () => {
                 <img className="header__logo wp" src={wpLogoBW} alt="wp"/>
                 <img className="header__logo gh" src={ghLogo} alt="gh"/>
             </div>
-            <div className="hover-line">
-                <span>FURKAN TONYALI</span>
+            <div className="header__mid">
+                <span>F U R K A N T O N Y A L I</span>
             </div>
             <div className="header__nav">
                 <Link 

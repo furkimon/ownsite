@@ -1,24 +1,44 @@
-import React from 'react'
-// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
 import './Assets/Styles/App.css'
-import { Header, Home, Skills, Footer } from './components'
+import { Header, Sidebar, Home, Skills, Footer } from './components'
 
-class App extends React.Component {
+import { useStateValue } from "./Reducer/StateProvider"
 
-    render() {
+const App = () => {
+    const [{ isSideBar }, dispatch] = useStateValue();
+    const [shouldOverlay, setShouldOverlay] = useState('');
+    const [shouldMove, setShouldMove] = useState('');
 
-        return (
-            <div className="app">
-                <React.Fragment>
-                    <Header/>
+    useEffect(() => {
+        if (isSideBar) {
+            setShouldOverlay("overlay");
+            setShouldMove("move")
+        } else {
+            setShouldOverlay('')
+            setShouldMove('')
+        }
+    }, [isSideBar])
+
+    const sidebar = () => {
+        dispatch({ type: 'TOGGLE_SIDEBAR', payload: isSideBar });
+    }
+
+
+
+    return (
+        <div className="app">
+            <Header />
+            <Sidebar />
+            <div className="overflow">
+                <div className={"back " + shouldMove}>
+                    <div className={shouldOverlay} onClick={sidebar} />
                     <Home />
                     <Skills />
-                    <Footer />
-                </React.Fragment>
+                </div>
             </div>
-
-        )
-    }
+            <Footer />
+        </div>
+    )
 }
 
 export default App

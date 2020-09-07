@@ -1,8 +1,26 @@
 *{
     margin:0;
 }
+.overflow{
+    overflow: hidden;
+}
 
-/* .whole {
-    width: 100vh;
-    height: 100vh;
-} */
+.overlay {
+    position: absolute;
+    width : 100%;
+    height : 100%;
+    background : black;
+    opacity : 0.6;
+    filter : alpha(opacity=60); /*firefox???*/
+    z-index : 1;
+    transition: 0.75s;
+}
+
+.back{
+    width: 100%;
+    transition: 0.4s;
+}
+.move{
+    transform: translateX(130px);
+    transition: 0.75s;
+}
